@@ -2,3 +2,6 @@
 *.pbxuser
 build
 *.key
+MockSmtp.xcodeproj/project.xcworkspace/xcuserdata
+MockSmtp.xcodeproj/xcuserdata
+SCTcpServer/SCTcpServer.xcodeproj/xcuserdata

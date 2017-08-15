@@ -46,9 +46,6 @@
 #include <sys/time.h>
 #include <sys/stat.h>
 
-
-@interface LCLLogFile (Internals)
-
 // A lock which is held when the log file is used, opened, etc.
 static NSRecursiveLock *_LCLLogFile_lock = nil;
 
@@ -78,6 +75,8 @@ static const char *_LCLLogFile_filePath0_c = NULL;
 
 // The process id.
 static pid_t _LCLLogFile_processId = 0;
+
+@interface LCLLogFile (Internals)
 
 // Initializes the class.
 + (void)initialize;

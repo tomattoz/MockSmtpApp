@@ -59,7 +59,7 @@ static DnsClient *sSharedClient = nil;
 
 #include <dns_sd.h>
 #include <unistd.h>
-#include <DNSServiceDiscovery/DNSServiceDiscovery.h>
+//#include <DNSServiceDiscovery/DNSServiceDiscovery.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>

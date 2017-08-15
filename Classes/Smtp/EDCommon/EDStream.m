@@ -240,7 +240,7 @@ The linebreak style can be change during normal operation if required. "*/
 - (void)setEnforcesCanonicalLinebreaks:(BOOL)flag
 {
     if((flag == YES) && (flags.linebreakStyle != EDCanonicalLinebreakStyle))
-        [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: Can only enforce canonical linebreaks if linebreak style is EDCanonicalLinebreakStyle.", NSStringFromClass(isa), NSStringFromSelector(_cmd)];
+        [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: Can only enforce canonical linebreaks if linebreak style is EDCanonicalLinebreakStyle.", NSStringFromClass(self.class), NSStringFromSelector(_cmd)];
     flags.enforcesCanonicalLinebreaks = flag;
 }
 
@@ -258,7 +258,7 @@ The linebreak style can be change during normal operation if required. "*/
 {
     // the following is not really true. we could also escape dots if linebreak style is unix....
     if((flag == YES) && (flags.linebreakStyle != EDCanonicalLinebreakStyle))
-        [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: Can only escape leading dots if linebreak style is EDCanonicalLinebreakStyle.", NSStringFromClass(isa), NSStringFromSelector(_cmd)];
+        [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: Can only escape leading dots if linebreak style is EDCanonicalLinebreakStyle.", NSStringFromClass(self.class), NSStringFromSelector(_cmd)];
     flags.escapesLeadingDots = flag;
 }
 

@@ -61,8 +61,8 @@
     if(methodList == nil)
         methodList = [[NSMutableSet alloc] init];
 
-   if((method = EDObjcClassGetInstanceMethod(isa, selector)) == NULL)
-       method = EDObjcClassGetClassMethod(isa, selector);
+   if((method = EDObjcClassGetInstanceMethod(self.class, selector)) == NULL)
+       method = EDObjcClassGetClassMethod(self.class, selector);
 
    methodKey = [NSValue valueWithBytes:&method objCType:@encode(Method)];
    if([methodList containsObject:methodKey] == NO)

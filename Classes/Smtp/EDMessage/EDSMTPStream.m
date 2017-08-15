@@ -88,7 +88,7 @@ NSString *EDSMTPErrorDomain = @"EDSMTPErrorDomain";
 	    {
 	    if(([self allowsPipelining] == NO) && ([self hasPendingResponses]))
 			{
-			[NSException raise:NSInternalInconsistencyException format:@"-[%@ %@]: Attempt to issue an SMTP command when a response is pending and server is not known to allow pipelining.", NSStringFromClass(isa), NSStringFromSelector(_cmd)];
+			[NSException raise:NSInternalInconsistencyException format:@"-[%@ %@]: Attempt to issue an SMTP command when a response is pending and server is not known to allow pipelining.", NSStringFromClass(self.class), NSStringFromSelector(_cmd)];
 			}
 		}
     
@@ -96,15 +96,15 @@ NSString *EDSMTPErrorDomain = @"EDSMTPErrorDomain";
         {
         if(state == ServerReadingBody)
             {
-            [NSException raise:NSInternalInconsistencyException format:@"-[%@ %@]: Attempt to issue an SMTP command within message body.", NSStringFromClass(isa), NSStringFromSelector(_cmd)];
+            [NSException raise:NSInternalInconsistencyException format:@"-[%@ %@]: Attempt to issue an SMTP command within message body.", NSStringFromClass(self.class), NSStringFromSelector(_cmd)];
             }
         else if(state == ConnectionClosed)
             {
-            [NSException raise:NSInternalInconsistencyException format:@"-[%@ %@]: Attempt to issue an SMTP command on a closed stream.", NSStringFromClass(isa), NSStringFromSelector(_cmd)];
+            [NSException raise:NSInternalInconsistencyException format:@"-[%@ %@]: Attempt to issue an SMTP command on a closed stream.", NSStringFromClass(self.class), NSStringFromSelector(_cmd)];
             }
         else
             {
-            [NSException raise:NSInternalInconsistencyException format:@"-[%@ %@]: Attempt to issue an SMTP command on an unusable stream.", NSStringFromClass(isa), NSStringFromSelector(_cmd)];
+            [NSException raise:NSInternalInconsistencyException format:@"-[%@ %@]: Attempt to issue an SMTP command on an unusable stream.", NSStringFromClass(self.class), NSStringFromSelector(_cmd)];
             }
 
         }
@@ -353,7 +353,7 @@ NSString *EDSMTPErrorDomain = @"EDSMTPErrorDomain";
 - (void)finishBody
 {
     if(state != ServerReadingBody)
-        [NSException raise:NSInternalInconsistencyException format:@"-[%@ %@]: Attempt to finish a message body that was not begun.", NSStringFromClass(isa), NSStringFromSelector(_cmd)];
+        [NSException raise:NSInternalInconsistencyException format:@"-[%@ %@]: Attempt to finish a message body that was not begun.", NSStringFromClass(self.class), NSStringFromSelector(_cmd)];
     [self writeString:@"\r\n.\r\n"];
     [pendingResponses addObject:@"250"];
     state = ServerReadyForCommand;
@@ -371,7 +371,7 @@ NSString *EDSMTPErrorDomain = @"EDSMTPErrorDomain";
     NSArray		*response;
 
     if([pendingResponses count] == 0)
-        [NSException raise:NSInternalInconsistencyException format:@"-[%@ %@]: No pending responses.", NSStringFromClass(isa), NSStringFromSelector(_cmd)];
+        [NSException raise:NSInternalInconsistencyException format:@"-[%@ %@]: No pending responses.", NSStringFromClass(self.class), NSStringFromSelector(_cmd)];
 
     expectedCode = [[[pendingResponses objectAtIndex:0] retain] autorelease];
     [pendingResponses removeObjectAtIndex:0];

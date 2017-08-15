@@ -10,7 +10,7 @@
 
 #import "OPSSLSocket.h"
 #import <sys/socket.h>
-#import <openssl/rand.h>
+//#import <openssl/rand.h>
 //#import "OPDebug.h"
 #import "NSString+OPOSErrors.h"
 

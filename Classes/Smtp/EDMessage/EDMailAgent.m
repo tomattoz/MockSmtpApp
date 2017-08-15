@@ -405,15 +405,15 @@ NSString *EDMailSubject = @"Subject";
     if((newRecipients = [userHeaders objectForKey:EDMailBCC]) != nil)
         [recipients addObjectsFromArray:[newRecipients addressListFromEMailString]];
     if([recipients count] == 0)
-        [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: No recipients in header list.", NSStringFromClass(isa), NSStringFromSelector(_cmd)];
+        [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: No recipients in header list.", NSStringFromClass(self.class), NSStringFromSelector(_cmd)];
     
     if((sender = [userHeaders objectForKey:EDMailSender]) == nil)
         {
         authors = [[userHeaders objectForKey:EDMailFrom] addressListFromEMailString];
         if([authors count] == 0)
-            [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: No sender or from field in header list.", NSStringFromClass(isa), NSStringFromSelector(_cmd)];
+            [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: No sender or from field in header list.", NSStringFromClass(self.class), NSStringFromSelector(_cmd)];
         if([authors count] > 1)
-            [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: Multiple from addresses and no sender field in header list.", NSStringFromClass(isa), NSStringFromSelector(_cmd)];
+            [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: Multiple from addresses and no sender field in header list.", NSStringFromClass(self.class), NSStringFromSelector(_cmd)];
         sender = [authors objectAtIndex:0];
         }
 
@@ -491,15 +491,15 @@ NSString *EDMailSubject = @"Subject";
     if((newRecipients = [message bodyForHeaderField:EDMailBCC]) != nil)
         [recipients addObjectsFromArray:[newRecipients addressListFromEMailString]];
     if([recipients count] == 0)
-        [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: No recipients in message headers.", NSStringFromClass(isa), NSStringFromSelector(_cmd)];
+        [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: No recipients in message headers.", NSStringFromClass(self.class), NSStringFromSelector(_cmd)];
 
     if((sender = [message bodyForHeaderField:EDMailSender]) == nil)
         {
         authors = [[message bodyForHeaderField:EDMailFrom] addressListFromEMailString];
         if([authors count] == 0)
-            [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: No sender or from field in message headers.", NSStringFromClass(isa), NSStringFromSelector(_cmd)];
+            [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: No sender or from field in message headers.", NSStringFromClass(self.class), NSStringFromSelector(_cmd)];
         if([authors count] > 1)
-            [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: Multiple from addresses and no sender field in message headers.", NSStringFromClass(isa), NSStringFromSelector(_cmd)];
+            [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: Multiple from addresses and no sender field in message headers.", NSStringFromClass(self.class), NSStringFromSelector(_cmd)];
         sender = [authors objectAtIndex:0];
         }
 
@@ -508,7 +508,7 @@ NSString *EDMailSubject = @"Subject";
         {
         // we could try to recode the "offending" parts using Quoted-Printable and Base64...
         if([stream handles8BitBodies] == NO)
-            [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: Message has 8-bit content transfer encoding but remote MTA only accepts 7-bit.", NSStringFromClass(isa), NSStringFromSelector(_cmd)];
+            [NSException raise:NSInvalidArgumentException format:@"-[%@ %@]: Message has 8-bit content transfer encoding but remote MTA only accepts 7-bit.", NSStringFromClass(self.class), NSStringFromSelector(_cmd)];
         }
     transferData = [message transferData];
 

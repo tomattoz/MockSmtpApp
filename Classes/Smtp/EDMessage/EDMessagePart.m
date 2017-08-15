@@ -141,7 +141,7 @@
 
     [stringBuffer appendString:@"\r\n"];
     if((headerData = [stringBuffer dataUsingEncoding:NSASCIIStringEncoding]) == nil)
-        [NSException raise:NSInternalInconsistencyException format:@"-[%@ %@]: Transfer representation of header fields contains non ASCII characters.", NSStringFromClass(isa), NSStringFromSelector(_cmd)];
+        [NSException raise:NSInternalInconsistencyException format:@"-[%@ %@]: Transfer representation of header fields contains non ASCII characters.", NSStringFromClass(self.class), NSStringFromSelector(_cmd)];
     [transferData appendData:headerData];
 
     [transferData appendData:[contentData encodeContentWithTransferEncoding: [self contentTransferEncoding]]];
@@ -345,7 +345,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@ 0x%x: %@>", NSStringFromClass(isa), self, [self bodyForHeaderField:@"content-type"]];
+    return [NSString stringWithFormat:@"<%@ 0x%x: %@>", NSStringFromClass(self.class), self, [self bodyForHeaderField:@"content-type"]];
 }
 
 
@@ -455,7 +455,7 @@
     NSData		*rawData;
 
     if(originalTransferData == nil)
-        [NSException raise:NSInternalInconsistencyException format:@"-[%@ %@]: Original transfer data not available anymore.", NSStringFromClass(isa), NSStringFromSelector(_cmd)];
+        [NSException raise:NSInternalInconsistencyException format:@"-[%@ %@]: Original transfer data not available anymore.", NSStringFromClass(self.class), NSStringFromSelector(_cmd)];
 
     // If we have a contentData already, it must have been created from the original before
     if(contentData != nil)
