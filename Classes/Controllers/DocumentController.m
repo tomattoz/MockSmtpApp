@@ -81,6 +81,11 @@
     
     NSURL *fileUrl = [NSURL fileURLWithPath:path];
     
+    if ([fileManager fileExistsAtPath:fileUrl.path] == NO)
+    {
+        [fileManager createFileAtPath:fileUrl.path contents:nil attributes:nil];
+    }
+    
     NSError *error = nil;
     self.document = [self openDocumentWithContentsOfURL:fileUrl display:YES error:&error];
     
