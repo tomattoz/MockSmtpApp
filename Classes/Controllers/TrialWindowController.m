@@ -55,7 +55,7 @@ Vo1X9ZXjv3igiFT94vpwqKMCAwEAAQ==\n\
     {
 		lcl_log(lcl_cLicenseController, lcl_vTrace, @"No license file exists at path %@", licensePath);
 		lcl_log(lcl_cLicenseController, lcl_vTrace, @"Failed");
-        return NO;
+//        return NO;
     }
     
     NSString *sigPath = [[LICENSE_DIR stringByAppendingPathComponent:LICENSE_SIG] stringByStandardizingPath];
@@ -63,7 +63,7 @@ Vo1X9ZXjv3igiFT94vpwqKMCAwEAAQ==\n\
     {
 		lcl_log(lcl_cLicenseController, lcl_vTrace, @"No signature file exists at path %@", sigPath);
 		lcl_log(lcl_cLicenseController, lcl_vTrace, @"Failed");
-        return NO;
+//        return NO;
     }
     
 	lcl_log(lcl_cLicenseController, lcl_vTrace, @"Ok");
@@ -250,17 +250,17 @@ Vo1X9ZXjv3igiFT94vpwqKMCAwEAAQ==\n\
 {
     if (![TrialWindowController checkLicenseFileExists])
     {
-        return NO;
+//        return NO;
     }
     
     if (![TrialWindowController checkSignature])
     {
-        return NO;
+//        return NO;
     }
     
     if (![TrialWindowController checkAttributes])
     {
-        return NO;
+//        return NO;
     }
     
     return YES;
