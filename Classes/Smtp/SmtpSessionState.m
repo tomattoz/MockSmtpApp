@@ -148,10 +148,7 @@
     NSMutableArray *args = [tokens mutableCopy];
     [args removeObjectAtIndex:0];
     
-    [self processCommand:command withArgs:args];
-    
-    [args release];
-    [tokens release];
+    [self processCommand:command withArgs:args];    
 }
 
 - (NSUInteger)processData:(NSData *)data

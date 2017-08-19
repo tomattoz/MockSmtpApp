@@ -71,9 +71,8 @@ static NSCharacterSet *iwsSet = nil;
 
 + (NSString *)stringWithData:(NSData *)data encoding:(NSStringEncoding)encoding
 {
-    return [[[NSString alloc] initWithData:data encoding:encoding] autorelease];
+    return [[NSString alloc] initWithData:data encoding:encoding];
 }
-
 
 //---------------------------------------------------------------------------------------
 //	VARIOUS EXTENSIONS
