@@ -1558,7 +1558,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MockSmtp_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ikhvorostinin.MockSmtpAppAndImporter;
 				PRODUCT_NAME = MockSmtp;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1582,7 +1582,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MockSmtp_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ikhvorostinin.MockSmtpAppAndImporter;
 				PRODUCT_NAME = MockSmtp;
 				WRAPPER_EXTENSION = app;
 			};

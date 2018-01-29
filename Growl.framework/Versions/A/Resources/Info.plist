@@ -20,5 +20,9 @@
 	<string>1.2.1</string>
 	<key>NSPrincipalClass</key>
 	<string>GrowlApplicationBridge</string>
+	<key>CFBundleSupportedPlatforms</key>
+	<array>
+		<string>MacOSX</string>
+	</array>
 </dict>
 </plist>

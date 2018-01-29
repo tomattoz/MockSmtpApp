@@ -97,7 +97,9 @@ NSString * const TcpServerErrorDomain = @"TcpServerErrorDomain";
                 NSLog(@"wait");
             }        
         }
-        @catch (NSException * e) {}
+        @catch (NSException * e) {
+            NSLog(@"%@", e);
+        }
     }
     
     if (![self startServer])
@@ -108,10 +110,21 @@ NSString * const TcpServerErrorDomain = @"TcpServerErrorDomain";
     serverProxy = [[NSConnection rootProxyForConnectionWithRegisteredName:@"com.screencustoms.tcp.server" host:nil] retain];
 
 #warning * It's sucks. Need to think about something more clever.
+    
+    NSDate * date2 = [NSDate date];
+    
     while (!serverProxy)
     {
         NSLog(@"wait");
         serverProxy = [[NSConnection rootProxyForConnectionWithRegisteredName:@"com.screencustoms.tcp.server" host:nil] retain];
+        
+        if ([NSDate.date timeIntervalSinceDate:date2] > 5) {
+            *error = [NSError errorWithDomain:TcpServerErrorDomain
+                                         code:kTcpServerNoSocketsAvailable
+                                     userInfo:@{ NSLocalizedDescriptionKey: @"Failed to start root proxy for connection" }];
+            NSLog(@"Failed to start root proxy for connection");
+            break;
+        }
     }
     
     [serverProxy setProtocolForProxy:@protocol(SCTcpServer)];

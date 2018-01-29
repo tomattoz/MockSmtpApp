@@ -91,6 +91,7 @@
         {
             [mStatusText setStringValue:[NSString stringWithFormat:@"Error while opening port %d", port]];
             [self log:[NSString stringWithFormat:@"Error while opening port %@", mPort]];
+            [self log:error.localizedDescription];
         }
     }
 }
