@@ -178,6 +178,7 @@
     }
     
     [[self managedObjectContext] processPendingChanges];
+    [[self managedObjectContext] save:nil];
 }
 
 - (IBAction)deleteSelectionFromTrash:(id) sender
@@ -192,6 +193,7 @@
     }
     
     [[self managedObjectContext] processPendingChanges];
+    [[self managedObjectContext] save:nil];
 }
 
 - (IBAction)restoreSelectionFromTrash:(id) sender
@@ -205,6 +207,7 @@
     }
     
     [[self managedObjectContext] processPendingChanges];
+    [[self managedObjectContext] save:nil];
 }
 
 - (BOOL)tableView:(NSTableView *)tv writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard*)pboard

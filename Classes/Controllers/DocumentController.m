@@ -228,6 +228,8 @@
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
+    [self.document.managedObjectContext save:nil];
+    [self.document save];
     [SoftwareUpdateController completeUpdateIfNeeded];
 }
 
