@@ -72,4 +72,7 @@
 @property (nonatomic, assign) IBOutlet WebView *bodyWebView;
 @property (nonatomic, assign) IBOutlet NSTextView *rawTextView;
 
+@property (nonatomic, assign) IBOutlet NSSplitView *splitViewVertical;
+@property (nonatomic, assign) IBOutlet NSSplitView *splitViewHorizontal;
+
 @end

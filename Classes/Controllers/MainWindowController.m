@@ -49,6 +49,28 @@
     return self;
 }
 
+- (void)windowDidLoad {
+    [super windowDidLoad];
+
+    // split view autosave work wrong way on Mojave, so do it manually
+    
+    NSArray * splitViewVerticalRestore = [NSUserDefaults.standardUserDefaults
+                                          valueForKey:@"NSSplitView Subview Frames splitViewVertical"];
+    
+    if (splitViewVerticalRestore.firstObject) {
+        NSRect firstViewRect = NSRectFromString(splitViewVerticalRestore.firstObject);
+        [self.splitViewVertical setPosition:firstViewRect.size.width ofDividerAtIndex:0];
+    }
+
+    NSArray * splitViewHorizontalRestore = [NSUserDefaults.standardUserDefaults
+                                          valueForKey:@"NSSplitView Subview Frames splitViewHorizontal"];
+    
+    if (splitViewHorizontalRestore.firstObject) {
+        NSRect firstViewRect = NSRectFromString(splitViewHorizontalRestore.firstObject);
+        [self.splitViewHorizontal setPosition:firstViewRect.size.height ofDividerAtIndex:0];
+    }
+}
+
 - (IBAction)delete:(id)sender
 {
     NSResponder *responder = [[self window] firstResponder];
