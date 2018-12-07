@@ -21,6 +21,10 @@
     return YES;
 }
 
+- (NSColor *)textColor {
+    return [NSColor blackColor];
+}
+
 - (id)transformedValue:(id)value
 {
     if (![value isKindOfClass:[NSString class]])
@@ -30,8 +34,11 @@
     
     NSString *string = (NSString *)value;
     return [[NSAttributedString alloc] initWithString:string
-                                           attributes:[NSDictionary dictionaryWithObject:[NSFont fontWithName:@"Monaco" size:12.0f]
-                                                                                  forKey:NSFontAttributeName]];
+                                           attributes:
+            @{
+              NSFontAttributeName : [NSFont fontWithName:@"Monaco" size:12.0f],
+              NSForegroundColorAttributeName : self.textColor
+              }];
 }
 
 - (id)reverseTransformedValue:(id)value
@@ -43,6 +50,15 @@
     
     NSAttributedString *attrString = (NSAttributedString *)value;
     return [attrString string];
+}
+
+@end
+
+
+@implementation RawSystemTextHighlighter
+
+- (NSColor *)textColor {
+    return [NSColor textColor];
 }
 
 @end

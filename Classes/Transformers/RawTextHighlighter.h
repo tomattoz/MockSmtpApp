@@ -10,8 +10,7 @@
 
 
 @interface RawTextHighlighter : NSValueTransformer
-{
+@end
 
-}
-
+@interface RawSystemTextHighlighter : RawTextHighlighter
 @end
